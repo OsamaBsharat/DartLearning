@@ -64,10 +64,33 @@ void deleteFile(String fileName) {
   file.delete();
 }
 
+void csvFile(String fileName) {
+  File csvFile = new File(fileName);
+  csvFile.writeAsStringSync('Name,Age,Address\n');
+  String name, age, address;
+  name = 'Osama Shaheen';
+  age = '24.5';
+  address = 'Tammoun';
+  csvFile.writeAsStringSync('$name,$age,$address\n', mode: FileMode.append);
+  name = 'Ahnad Shaheen';
+  age = '20.5';
+  address = 'Tubas';
+  csvFile.writeAsStringSync('$name,$age,$address\n', mode: FileMode.append);
+  name = 'Ali Shaheen';
+  age = '58';
+  address = 'Canda';
+  csvFile.writeAsStringSync('$name,$age,$address\n', mode: FileMode.append);
+  name = 'Ibraheem Shaheen';
+  age = '25.5';
+  address = 'Tammoun';
+  csvFile.writeAsStringSync('$name,$age,$address\n', mode: FileMode.append);
+}
+
 void main() {
-  /*1.*/ addtoFile('hello.txt');
-  /*2. & 3.*/ addAnotherNames('hello.txt');
-  /*4.*/ copyFiles('hello.txt', 'hello_copy_2.txt');
-  /*5.*/ create100Files();
-  /*6.*/ deleteFile('hello_copy.txt');
+  // /*1.*/         addtoFile('hello.txt');
+  // /*2. & 3.*/    addAnotherNames('hello.txt');
+  //  /*4.*/        copyFiles('hello.txt', 'hello_copy_2.txt');
+  // /*5.*/         create100Files();
+  // /*6.*/         deleteFile('hello_copy.txt');
+  csvFile('Studentsinfo.csv');
 }
